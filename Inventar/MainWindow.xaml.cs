@@ -86,6 +86,7 @@ namespace Inventar
             }
             Grid.SetColumn(obj, collum);
             Grid.SetRow(obj, row);
+
              
 
             
