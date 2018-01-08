@@ -21,25 +21,51 @@ namespace Inventar
     public partial class MainWindow : Window
     {
         Rectangle obj;
-        private bool _isRectDragInProg;
+        private bool _isRectDragInProg = false;
         public MainWindow()
         {
             InitializeComponent();
+            Console.WriteLine(Grid.ColumnProperty);
         }
-        private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        private void move_Rectangle(object sender, MouseButtonEventArgs e)
         {
-            _isRectDragInProg = true;
-            obj = sender as Rectangle;
             
-            obj.CaptureMouse();
+            
+            if (_isRectDragInProg == true)
+            {
+                obj.ReleaseMouseCapture();
+
+
+                _isRectDragInProg = false;
+            } else if (_isRectDragInProg == false)
+            {
+                
+                obj = sender as Rectangle;
+                Console.WriteLine(obj.Name);
+                obj.CaptureMouse();
+
+                
+                _isRectDragInProg = true;
+
+
+            }
+
+
+        }
+
+
+        /*private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
         }
 
         private void rect_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _isRectDragInProg = false;
             obj.ReleaseMouseCapture();
-        }
-
+        }*/
+        
         private void rect_MouseMove(object sender, MouseEventArgs e)
         {
             if (!_isRectDragInProg) return;
