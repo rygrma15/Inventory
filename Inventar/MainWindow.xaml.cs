@@ -42,13 +42,10 @@ namespace Inventar
             {
                 
                 obj = sender as Rectangle;
+
                 Console.WriteLine(obj.Name);
                 obj.CaptureMouse();
-
-                
                 _isRectDragInProg = true;
-
-
             }
 
 
@@ -57,6 +54,9 @@ namespace Inventar
 
         /*private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            _isRectDragInProg = true;
+            obj = sender as Rectangle;
+            obj.CaptureMouse();
             
         }
 
@@ -65,7 +65,7 @@ namespace Inventar
             _isRectDragInProg = false;
             obj.ReleaseMouseCapture();
         }*/
-        
+
         private void rect_MouseMove(object sender, MouseEventArgs e)
         {
             if (!_isRectDragInProg) return;
