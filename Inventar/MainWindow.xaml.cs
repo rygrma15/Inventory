@@ -40,10 +40,11 @@ namespace Inventar
                 {
                     _isRectDragInProg = true;
                     obj = sender as Rectangle;
+                Panel.SetZIndex(obj, 100);
 
-                    //Console.WriteLine(obj.Name);
-                    
-                    obj.CaptureMouse();
+                //Console.WriteLine(obj.Name);
+
+                obj.CaptureMouse();
                     
 
 
@@ -157,6 +158,7 @@ namespace Inventar
                 else
                 {
                     obj.ReleaseMouseCapture();
+                    Panel.SetZIndex(obj, 0);
                     _isRectDragInProg = false;
                 }
                 isFilled = false;

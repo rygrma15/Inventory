@@ -55,55 +55,119 @@
                 Name="rect"
                 Width="50"
                 Height="100"
-                Fill="Red"
                 MouseLeftButtonDown="move_Rectangle"
-                
+                Panel.ZIndex="500"
                 MouseMove="rect_MouseMove"
                 Grid.Column="4"
                 Grid.Row="3"
                 Grid.RowSpan="2"
                 
-                />
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv4.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle
                 Name="rect2"
                 Width="100"
                 Height="50"
-                Fill="green"
+                
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
                 Grid.Column="5"
                 Grid.ColumnSpan="2" Grid.Row="1"
                 
-                />
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv2.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle
                 Name="rect1"
                 Width="50"
                 Height="50"
                 Canvas.Left="0"
                 Canvas.Top="0"
-                Fill="blue"
+                
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
                 Grid.Column="2"
                 Grid.Row="2"
                 HorizontalAlignment="Center"
-                />
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv6.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
             <Rectangle
                 Name="rect3"
                 Width="50"
                 Height="50"
                 Canvas.Left="0"
                 Canvas.Top="0"
-                Fill="yellow"
+                
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="2"
-                Grid.Row="2"
+                Grid.Column="1"
+                Grid.Row="3"
                 HorizontalAlignment="Center"
-                />
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv5.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect4"
+                Width="100"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="7"
+                Grid.Row="4"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,1,0"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv1.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect5"
+                Width="50"
+                Height="100"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="8"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                HorizontalAlignment="Center"  Margin="0,0,1,0"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv3.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
 
         </Grid>
 
