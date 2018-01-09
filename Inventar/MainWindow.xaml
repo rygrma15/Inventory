@@ -65,7 +65,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv4.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv4.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -83,7 +83,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv2.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv2.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -103,7 +103,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv6.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv6.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -123,7 +123,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv5.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv5.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -143,7 +143,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv1.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv1.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -164,7 +164,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv3.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv3.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>

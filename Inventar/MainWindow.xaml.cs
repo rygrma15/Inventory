@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -152,12 +153,15 @@ namespace Inventar
                 }
                 if (isFilled == true)
                 {
+                    
                     _isRectDragInProg = true;
                     
                 }
                 else
                 {
+                    
                     obj.ReleaseMouseCapture();
+                    
                     Panel.SetZIndex(obj, 0);
                     _isRectDragInProg = false;
                 }
