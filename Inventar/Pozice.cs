@@ -10,7 +10,11 @@ namespace Inventar
     {
         public int x;
         public int y;
-        public bool sirka;
-        public bool vyska;
+        public Pozice(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
     }
 }

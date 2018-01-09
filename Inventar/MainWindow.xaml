@@ -90,6 +90,20 @@
                 Grid.Row="2"
                 HorizontalAlignment="Center"
                 />
+            <Rectangle
+                Name="rect3"
+                Width="50"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                Fill="yellow"
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="2"
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                />
 
         </Grid>
 

@@ -24,6 +24,7 @@ namespace Inventar
         private bool _isRectDragInProg = false;
         int row;
         int collum;
+        bool isFilled = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -54,84 +55,123 @@ namespace Inventar
                 }
                 else if (_isRectDragInProg == true)
                 {
+                List<Pozice> fill = new List<Pozice>();
+                List<Pozice> akt = new List<Pozice>();
 
-                    foreach (UIElement cell in grid.Children)
+                foreach (UIElement cell in grid.Children)
                     {
-                        if (cell.GetValue(NameProperty).ToString() == obj.Name)
+                    int x = Grid.GetColumn(cell);
+                    //Console.WriteLine("Pozice-sloupec:" + x);
+                    int y = Grid.GetRow(cell);
+                    //Console.WriteLine("Pozice-radek:" + y);
+                    int xa = Grid.GetColumnSpan(cell);
+                    //Console.WriteLine("Delka-sloupec:" + xa);
+                    int ya = Grid.GetRowSpan(cell);
+                    //Console.WriteLine("Delka-radek:" + ya);
+
+
+                    if (cell.GetValue(NameProperty).ToString() == obj.Name)
                         {
                             Console.WriteLine(cell.GetValue(NameProperty));
                             Console.WriteLine(obj.Name);
+                        if (xa == 2)
+                        {
+
+                            akt.Add(new Pozice(x + 1, y));
+                            akt.Add(new Pozice(x, y));
                         }
+                        else
+                        {
+                            akt.Add(new Pozice(x, y));
+                        }
+
+                        if (ya == 2)
+                        {
+                            akt.Add(new Pozice(x, y + 1));
+                            akt.Add(new Pozice(x, y));
+                        }
+                        else
+                        {
+                            akt.Add(new Pozice(x, y));
+                        }
+
+                    }
                         else
                         {
                             Console.WriteLine(cell.GetValue(NameProperty));
                         
-                            int x = Grid.GetColumn(cell);
-                            //Console.WriteLine("Pozice-sloupec:" + x);
-                            int y = Grid.GetRow(cell);
-                            //Console.WriteLine("Pozice-radek:" + y);
-                            int xa = Grid.GetColumnSpan(cell);
-                            //Console.WriteLine("Delka-sloupec:" + xa);
-                            int ya = Grid.GetRowSpan(cell);
-                            //Console.WriteLine("Delka-radek:" + ya);
-
+                            
                             if (xa == 2)
                             {
-                                columns.Add(x + 1);
-                                columns.Add(x);
+                                
+                                fill.Add(new Pozice(x + 1,y));
+                                fill.Add(new Pozice(x,y));
                             }
                             else
                             {
-                                columns.Add(x);
+                            fill.Add(new Pozice(x,y));
                             }
 
                             if (ya == 2)
                             {
-                                rows.Add(y + 1);
-                                rows.Add(y);
+                                fill.Add(new Pozice(x, y + 1));
+                                fill.Add(new Pozice(x,y));
                             }
                             else
                             {
-                                rows.Add(y);
+                                fill.Add(new Pozice(x,y));
                             }
                             
                         }
                     
                 }
-                foreach (var o in rows)
+                foreach (var o in fill)
                 {
-                    Console.WriteLine("radek: " + o);
+                    Console.WriteLine(o.x+", "+o.y);
                 }
-                foreach (var d in columns)
+                foreach (var d in akt)
                 {
-                    Console.WriteLine("sloupec: " + d);
+                    Console.WriteLine(d.x + ", " + d.y);
                 }
 
-                /*int pocetradky = rows.Where(temp => temp.Equals(row))
-                            .Select(temp => temp)
-                            .Count();
-                int pocetradka = rows.Where(temp => temp.Equals(row+1))
-                            .Select(temp => temp)
-                            .Count();
-                int pocetsloupce = columns.Where(temp => temp.Equals(collum))
-                            .Select(temp => temp)
-                            .Count();
-                int pocetsloupcea = columns.Where(temp => temp.Equals(collum+1))
-                            .Select(temp => temp)
-                            .Count();
-                //Console.WriteLine(pocetsloupce + pocetradky + pocetsloupcea + pocetradka);
-                    if ((pocetsloupce + pocetradky+ pocetsloupcea + pocetradka) < 5)
+                foreach(var o in akt)
+                {
+                    
+                    foreach(var d in fill)
                     {
+                        if (d.x == o.x && d.y == o.y)
+                        {
+                            isFilled = true;
+                            Console.WriteLine(isFilled);
+                        }
+                        
 
-
-                        obj.ReleaseMouseCapture();
-                        _isRectDragInProg = false;
-                        //break;
                     }
-                    else
-                    {
-                        _isRectDragInProg = true;
-                    }*/
+                    
+                }
+                if (isFilled == true)
+                {
+                    _isRectDragInProg = true;
+                    
+                }
+                else
+                {
+                    obj.ReleaseMouseCapture();
+                    _isRectDragInProg = false;
+                }
+                isFilled = false;
+                /*{
+
+
+
+                    //break;
+                }
+                else
+                {
+                    obj.ReleaseMouseCapture();
+                    _isRectDragInProg = false;
+                    _isRectDragInProg = true;
+                }*/
 
             }
             //}
