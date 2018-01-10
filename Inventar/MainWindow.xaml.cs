@@ -29,7 +29,9 @@ namespace Inventar
         public MainWindow()
         {
             InitializeComponent();
-            
+            Console.WriteLine("delka gridu: "+grid.ColumnDefinitions.Count());
+
+
         }
 
         private void move_Rectangle(object sender, MouseButtonEventArgs e)
@@ -213,9 +215,9 @@ namespace Inventar
                 {
                     left = 0;
                 }
-                else if (mousePos.X > 450)
+                else if (mousePos.X > (grid.ColumnDefinitions.Count()*50) - (Grid.GetColumnSpan(obj)*50))
                 {
-                    left = 8;
+                    left = grid.ColumnDefinitions.Count-Grid.GetColumnSpan(obj);
                 }
                 else
                 {
@@ -226,9 +228,9 @@ namespace Inventar
                 {
                     top = 0;
                 }
-                else if (mousePos.Y > 250)
+                else if (mousePos.Y > (grid.RowDefinitions.Count() * 50) - (Grid.GetRowSpan(obj)*50))
                 {
-                    top = 4;
+                    top = grid.RowDefinitions.Count()-Grid.GetRowSpan(obj);
                 }
                 else
                 {
@@ -236,15 +238,16 @@ namespace Inventar
                 }
 
                 collum = (int)left;
-                if (Grid.GetColumnSpan(obj) == 2 && collum == 8)
+                row = (int)top;
+                /*if (Grid.GetColumnSpan(obj) == 2 && collum == 8)
                 {
                     collum = collum - 1;
                 }
-                row = (int)top;
+                
                 if (Grid.GetRowSpan(obj) == 2 && row == 4)
                 {
                     row = row - 1;
-                }
+                }*/
 
 
                 Grid.SetColumn(obj, collum);
