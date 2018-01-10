@@ -53,16 +53,9 @@ namespace Inventar
                 obj = sender as Rectangle;
                 Panel.SetZIndex(obj, 100);
 
-                //Console.WriteLine(obj.Name);
+
 
                 obj.CaptureMouse();
-
-
-
-
-                //Console.WriteLine(pocetradky);
-                //Console.WriteLine(pocetsloupce);
-
 
             }
             else if (_isRectDragInProg == true)
