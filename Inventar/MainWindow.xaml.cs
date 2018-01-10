@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileHelpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,14 +30,21 @@ namespace Inventar
         public MainWindow()
         {
             InitializeComponent();
-            Console.WriteLine("delka gridu: "+grid.ColumnDefinitions.Count());
+            posLoad();
+            Console.WriteLine("delka gridu: " + grid.ColumnDefinitions.Count());
+            this.Closing += MainWindow_Closing;
 
 
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            posSave();
+        }
+
         private void move_Rectangle(object sender, MouseButtonEventArgs e)
         {
-            int[,] pozice = new int[100,2];
+            int[,] pozice = new int[100, 2];
             /*while (true)
             {*/
             if (_isRectDragInProg == false)
@@ -83,15 +91,15 @@ namespace Inventar
                         for (int ctrColumn = x; ctrColumn < x + xa; ctrColumn++)
                         {
                             akt.Add(new Pozice(ctrColumn, y, cell.GetValue(NameProperty).ToString()));
-                            
+
                             //Console.WriteLine(ctrColumn + "; "+ y);
-                            for (int ctrRow = y; ctrRow < y+ ya; ctrRow++)
+                            for (int ctrRow = y; ctrRow < y + ya; ctrRow++)
                             {
-                                
+
                                 akt.Add(new Pozice(ctrColumn, ctrRow, cell.GetValue(NameProperty).ToString()));
-                                
+
                                 //Console.WriteLine(ctrColumn + "; " + ctrRow);
-                                
+
                             }
                         }
 
@@ -124,15 +132,15 @@ namespace Inventar
                     {
                         //Console.WriteLine("cyklus bunkou: "+cell.GetValue(NameProperty));
 
-                        for (int ctrColumn = x; ctrColumn < x +xa; ctrColumn++)
+                        for (int ctrColumn = x; ctrColumn < x + xa; ctrColumn++)
                         {
                             fill.Add(new Pozice(ctrColumn, y, cell.GetValue(NameProperty).ToString()));
-                            
+
                             //Console.WriteLine(op + "; " + y);
                             for (int ctrRow = y; ctrRow < y + ya; ctrRow++)
                             {
                                 fill.Add(new Pozice(ctrColumn, ctrRow, cell.GetValue(NameProperty).ToString()));
-                                
+
                                 //Console.WriteLine(ctrColumn + "; " + xd);
                             }
                         }
@@ -164,100 +172,85 @@ namespace Inventar
 
 
 
-                    /*foreach (var o in fill)
-                    {
-                        Console.WriteLine(o.x + ", " + o.y + " - "+o.name);
-                    }
-                    
-                    foreach (var d in akt)
-                    {
-                        Console.WriteLine("*"+d.x + ", " + d.y + " - " + d.name);
-                    }*/
+                /*foreach (var o in fill)
+                {
+                    Console.WriteLine(o.x + ", " + o.y + " - "+o.name);
+                }
 
-                    foreach (var o in akt)
+                foreach (var d in akt)
+                {
+                    Console.WriteLine("*"+d.x + ", " + d.y + " - " + d.name);
+                }*/
+
+                foreach (var o in akt)
+                {
+
+                    foreach (var d in fill)
                     {
-                        
-                        foreach (var d in fill)
+
+                        if (d.x == o.x && d.y == o.y)
                         {
-                            
-                            if (d.x == o.x && d.y == o.y)
-                            {
-                                
-                                isFilled = true;
-                                
-                                
-                            }
+
+                            isFilled = true;
 
 
                         }
 
-                    }
-                    if (isFilled == true)
-                    {
-                        
-                        _isRectDragInProg = true;
-                        isFilled = false;
 
                     }
-                    else
-                    {
 
-                        obj.ReleaseMouseCapture();
+                }
+                if (isFilled == true)
+                {
 
-                        Panel.SetZIndex(obj, 0);
-                        _isRectDragInProg = false;
-                        
-                    }
-                    /*{
+                    _isRectDragInProg = true;
+                    isFilled = false;
+
+                }
+                else
+                {
+
+                    obj.ReleaseMouseCapture();
+
+                    Panel.SetZIndex(obj, 0);
+                    _isRectDragInProg = false;
+
+                }
+                /*{
 
 
 
-                        //break;
-                    }
-                    else
-                    {
-                        obj.ReleaseMouseCapture();
-                        _isRectDragInProg = false;
-                        _isRectDragInProg = true;
-                    }*/
+                    //break;
+                }
+                else
+                {
+                    obj.ReleaseMouseCapture();
+                    _isRectDragInProg = false;
+                    _isRectDragInProg = true;
+                }*/
 
-                
-                
+
+
 
             }
 
         }
 
-
-            /*private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-            {
-                _isRectDragInProg = true;
-                obj = sender as Rectangle;
-                obj.CaptureMouse();
-
-            }
-
-            private void rect_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-            {
-                _isRectDragInProg = false;
-                obj.ReleaseMouseCapture();
-            }*/
-
-            private void rect_MouseMove(object sender, MouseEventArgs e)
-            {
-            //Console.WriteLine(_isRectDragInProg);
+        private void rect_MouseMove(object sender, MouseEventArgs e)
+        {
             if (_isRectDragInProg == true)
             {
                 var mousePos = e.GetPosition(grid);
                 double left;
                 double top;
+
                 if (mousePos.X < 0)
                 {
                     left = 0;
                 }
-                else if (mousePos.X > (grid.ColumnDefinitions.Count()*50) - (Grid.GetColumnSpan(obj)*50))
+                else if (mousePos.X > (grid.ColumnDefinitions.Count() * 50) - (Grid.GetColumnSpan(obj) * 50))
                 {
-                    left = grid.ColumnDefinitions.Count-Grid.GetColumnSpan(obj);
+                    left = grid.ColumnDefinitions.Count - Grid.GetColumnSpan(obj);
                 }
                 else
                 {
@@ -268,9 +261,9 @@ namespace Inventar
                 {
                     top = 0;
                 }
-                else if (mousePos.Y > (grid.RowDefinitions.Count() * 50) - (Grid.GetRowSpan(obj)*50))
+                else if (mousePos.Y > (grid.RowDefinitions.Count() * 50) - (Grid.GetRowSpan(obj) * 50))
                 {
-                    top = grid.RowDefinitions.Count()-Grid.GetRowSpan(obj);
+                    top = grid.RowDefinitions.Count() - Grid.GetRowSpan(obj);
                 }
                 else
                 {
@@ -293,12 +286,47 @@ namespace Inventar
                 Grid.SetColumn(obj, collum);
                 Grid.SetRow(obj, row);
             }
-            
 
-
-             
-
-            
         }
+        private void posSave()
+        {
+            var save = new List<PoziceSave>();
+            var engine = new FileHelperEngine<PoziceSave>();
+            foreach (UIElement cell in grid.Children)
+            {
+                int x = Grid.GetColumn(cell);
+
+                int y = Grid.GetRow(cell);
+
+                string name = cell.GetValue(NameProperty).ToString();
+
+                save.Add(new PoziceSave()
+                {
+                    x = x,
+                    y = y,
+                    name = name,
+                });
+
+            }
+            engine.WriteFile("Output.Txt", save);
+        }
+
+        private void posLoad()
+        {
+            var engine = new FileHelperEngine<PoziceSave>();
+            var load = engine.ReadFile("Output.txt");
+            foreach (UIElement cell in grid.Children)
+            {
+                foreach (var objekt in load)
+                {
+                    if(objekt.name == cell.GetValue(NameProperty).ToString())
+                    {
+                        Grid.SetColumn(cell, objekt.x);
+                        Grid.SetRow(cell, objekt.y);
+                    }
+                }
+            }
+        }
+
     }
 }
