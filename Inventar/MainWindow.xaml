@@ -58,8 +58,6 @@
                 MouseLeftButtonDown="move_Rectangle"
                 Panel.ZIndex="500"
                 MouseMove="rect_MouseMove"
-                Grid.Column="4"
-                Grid.Row="3"
                 Grid.RowSpan="2"
                 
                 >
@@ -77,8 +75,8 @@
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="5"
-                Grid.ColumnSpan="2" Grid.Row="1"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
                 
                 >
                 <Rectangle.Fill>
@@ -97,8 +95,7 @@
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="2"
-                Grid.Row="2"
+                Grid.Column="3"
                 HorizontalAlignment="Center"
                 >
                 <Rectangle.Fill>
@@ -117,8 +114,8 @@
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="1"
-                Grid.Row="3"
+                Grid.Column="5"
+                Grid.Row="1"
                 HorizontalAlignment="Center"
                 >
                 <Rectangle.Fill>
@@ -138,8 +135,7 @@
                 
                 MouseMove="rect_MouseMove"
                 Grid.Column="7"
-                Grid.Row="4"
-                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,1,0"
+                HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,1,0" 
                 >
                 <Rectangle.Fill>
 
@@ -157,14 +153,33 @@
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="8"
-                Grid.Row="1"
+                Grid.Column="6"
                 Grid.RowSpan="2"
-                HorizontalAlignment="Center"  Margin="0,0,1,0"
+                HorizontalAlignment="Center"  
                 >
                 <Rectangle.Fill>
 
                     <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv3.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rectX"
+                Width="400"
+                Height="100"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                HorizontalAlignment="Center"
+                Grid.ColumnSpan="8" 
+                Grid.RowSpan="2" Grid.Row="3" 
+                >
+                <Rectangle.Fill>
+
+                    <SolidColorBrush Color="Red"/>
 
                 </Rectangle.Fill>
             </Rectangle>

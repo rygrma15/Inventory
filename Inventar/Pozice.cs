@@ -10,10 +10,12 @@ namespace Inventar
     {
         public int x;
         public int y;
-        public Pozice(int x, int y)
+        public string name;
+        public Pozice(int x, int y, string name)
         {
             this.x = x;
             this.y = y;
+            this.name = name;
         }
 
     }

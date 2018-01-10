@@ -40,30 +40,30 @@ namespace Inventar
             /*while (true)
             {*/
             if (_isRectDragInProg == false)
-                {
-                    _isRectDragInProg = true;
-                    obj = sender as Rectangle;
+            {
+                _isRectDragInProg = true;
+                obj = sender as Rectangle;
                 Panel.SetZIndex(obj, 100);
 
                 //Console.WriteLine(obj.Name);
 
                 obj.CaptureMouse();
-                    
 
 
 
-                    //Console.WriteLine(pocetradky);
-                    //Console.WriteLine(pocetsloupce);
+
+                //Console.WriteLine(pocetradky);
+                //Console.WriteLine(pocetsloupce);
 
 
-                }
-                else if (_isRectDragInProg == true)
-                {
+            }
+            else if (_isRectDragInProg == true)
+            {
                 List<Pozice> fill = new List<Pozice>();
                 List<Pozice> akt = new List<Pozice>();
 
                 foreach (UIElement cell in grid.Children)
-                    {
+                {
                     int x = Grid.GetColumn(cell);
                     //Console.WriteLine("Pozice-sloupec:" + x);
                     int y = Grid.GetRow(cell);
@@ -73,23 +73,43 @@ namespace Inventar
                     int ya = Grid.GetRowSpan(cell);
                     //Console.WriteLine("Delka-radek:" + ya);
 
-
+                    //Console.WriteLine("vybraný objekt: " + obj.Name);
                     if (cell.GetValue(NameProperty).ToString() == obj.Name)
+                    {
+                        //Console.WriteLine("bunka a objekt se shoduji");
+                        //Console.WriteLine("cyklus bunkou: " + cell.GetValue(NameProperty));
+                        //Console.WriteLine(cell.GetValue(NameProperty));
+                        //Console.WriteLine(obj.Name);
+                        for (int ctrColumn = x; ctrColumn < x + xa; ctrColumn++)
                         {
-                            Console.WriteLine(cell.GetValue(NameProperty));
-                            Console.WriteLine(obj.Name);
-                        if (xa == 2)
+                            akt.Add(new Pozice(ctrColumn, y, cell.GetValue(NameProperty).ToString()));
+                            
+                            //Console.WriteLine(ctrColumn + "; "+ y);
+                            for (int ctrRow = y; ctrRow < y+ ya; ctrRow++)
+                            {
+                                
+                                akt.Add(new Pozice(ctrColumn, ctrRow, cell.GetValue(NameProperty).ToString()));
+                                
+                                //Console.WriteLine(ctrColumn + "; " + ctrRow);
+                                
+                            }
+                        }
+
+
+
+
+                        /*if (xa == 2)
                         {
 
                             akt.Add(new Pozice(x + 1, y));
-                            akt.Add(new Pozice(x, y));
+
                         }
                         else
                         {
                             akt.Add(new Pozice(x, y));
-                        }
+                        }*/
 
-                        if (ya == 2)
+                        /*if (ya == 2)
                         {
                             akt.Add(new Pozice(x, y + 1));
                             akt.Add(new Pozice(x, y));
@@ -97,94 +117,114 @@ namespace Inventar
                         else
                         {
                             akt.Add(new Pozice(x, y));
-                        }
+                        }*/
 
                     }
-                        else
+                    else
+                    {
+                        //Console.WriteLine("cyklus bunkou: "+cell.GetValue(NameProperty));
+
+                        for (int ctrColumn = x; ctrColumn < x +xa; ctrColumn++)
                         {
-                            Console.WriteLine(cell.GetValue(NameProperty));
-                        
+                            fill.Add(new Pozice(ctrColumn, y, cell.GetValue(NameProperty).ToString()));
                             
-                            if (xa == 2)
+                            //Console.WriteLine(op + "; " + y);
+                            for (int ctrRow = y; ctrRow < y + ya; ctrRow++)
+                            {
+                                fill.Add(new Pozice(ctrColumn, ctrRow, cell.GetValue(NameProperty).ToString()));
+                                
+                                //Console.WriteLine(ctrColumn + "; " + xd);
+                            }
+                        }
+                    }
+
+
+                    /*if (xa == 2)
+                    {
+
+                        fill.Add(new Pozice(x + 1,y));
+                        fill.Add(new Pozice(x,y));
+                    }
+                    else
+                    {
+                    fill.Add(new Pozice(x,y));
+                    }
+
+                    if (ya == 2)
+                    {
+                        fill.Add(new Pozice(x, y + 1));
+                        fill.Add(new Pozice(x,y));
+                    }
+                    else
+                    {
+                        fill.Add(new Pozice(x,y));
+                    }*/
+                }
+
+
+
+
+                    /*foreach (var o in fill)
+                    {
+                        Console.WriteLine(o.x + ", " + o.y + " - "+o.name);
+                    }
+                    
+                    foreach (var d in akt)
+                    {
+                        Console.WriteLine("*"+d.x + ", " + d.y + " - " + d.name);
+                    }*/
+
+                    foreach (var o in akt)
+                    {
+                        
+                        foreach (var d in fill)
+                        {
+                            
+                            if (d.x == o.x && d.y == o.y)
                             {
                                 
-                                fill.Add(new Pozice(x + 1,y));
-                                fill.Add(new Pozice(x,y));
-                            }
-                            else
-                            {
-                            fill.Add(new Pozice(x,y));
+                                isFilled = true;
+                                
+                                
                             }
 
-                            if (ya == 2)
-                            {
-                                fill.Add(new Pozice(x, y + 1));
-                                fill.Add(new Pozice(x,y));
-                            }
-                            else
-                            {
-                                fill.Add(new Pozice(x,y));
-                            }
-                            
-                        }
-                    
-                }
-                foreach (var o in fill)
-                {
-                    Console.WriteLine(o.x+", "+o.y);
-                }
-                foreach (var d in akt)
-                {
-                    Console.WriteLine(d.x + ", " + d.y);
-                }
 
-                foreach(var o in akt)
-                {
-                    
-                    foreach(var d in fill)
-                    {
-                        if (d.x == o.x && d.y == o.y)
-                        {
-                            isFilled = true;
-                            Console.WriteLine(isFilled);
                         }
-                        
 
                     }
-                    
-                }
-                if (isFilled == true)
-                {
-                    
-                    _isRectDragInProg = true;
-                    
-                }
-                else
-                {
-                    
-                    obj.ReleaseMouseCapture();
-                    
-                    Panel.SetZIndex(obj, 0);
-                    _isRectDragInProg = false;
-                }
-                isFilled = false;
-                /*{
+                    if (isFilled == true)
+                    {
+                        
+                        _isRectDragInProg = true;
+                        isFilled = false;
+
+                    }
+                    else
+                    {
+
+                        obj.ReleaseMouseCapture();
+
+                        Panel.SetZIndex(obj, 0);
+                        _isRectDragInProg = false;
+                        
+                    }
+                    /*{
 
 
 
-                    //break;
-                }
-                else
-                {
-                    obj.ReleaseMouseCapture();
-                    _isRectDragInProg = false;
-                    _isRectDragInProg = true;
-                }*/
+                        //break;
+                    }
+                    else
+                    {
+                        obj.ReleaseMouseCapture();
+                        _isRectDragInProg = false;
+                        _isRectDragInProg = true;
+                    }*/
+
+                
+                
 
             }
-            //}
-
-
 
         }
 
@@ -204,7 +244,7 @@ namespace Inventar
             }*/
 
             private void rect_MouseMove(object sender, MouseEventArgs e)
-        {
+            {
             //Console.WriteLine(_isRectDragInProg);
             if (_isRectDragInProg == true)
             {
