@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Inventar
 {
@@ -27,11 +28,13 @@ namespace Inventar
         int row;
         int collum;
         bool isFilled = false;
+        string imgFile;
+
         public MainWindow()
         {
+
             InitializeComponent();
             posLoad();
-            Console.WriteLine("delka gridu: " + grid.ColumnDefinitions.Count());
             this.Closing += MainWindow_Closing;
 
 
@@ -44,16 +47,20 @@ namespace Inventar
 
         private void move_Rectangle(object sender, MouseButtonEventArgs e)
         {
-            int[,] pozice = new int[100, 2];
-            /*while (true)
-            {*/
+
             if (_isRectDragInProg == false)
             {
                 _isRectDragInProg = true;
                 obj = sender as Rectangle;
                 Panel.SetZIndex(obj, 100);
+                imgFile = imgFileName(obj);
 
-
+                
+                
+                string plus = "drag";
+                string path = @"C:\Users\Alena\Desktop\Nová složka\"+imgFile+"_" + plus + ".png";
+                obj.Fill = new ImageBrush(new BitmapImage(
+                new Uri(path, UriKind.Relative)));
 
                 obj.CaptureMouse();
 
@@ -195,14 +202,22 @@ namespace Inventar
                 }
                 if (isFilled == true)
                 {
-
+                    string plus = "wrong";
+                    string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
+                    obj.Fill = new ImageBrush(new BitmapImage(
+                    new Uri(path, UriKind.Relative)));
                     _isRectDragInProg = true;
                     isFilled = false;
 
                 }
                 else
                 {
-
+                    
+                    string plus = "def";
+                    string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
+                    obj.Fill = new ImageBrush(new BitmapImage(
+                    new Uri(path, UriKind.Relative)));
+                    
                     obj.ReleaseMouseCapture();
 
                     Panel.SetZIndex(obj, 0);
@@ -231,8 +246,13 @@ namespace Inventar
 
         private void rect_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isRectDragInProg == true)
+            
+            if (_isRectDragInProg == true)  
             {
+                string plus = "drag";
+                string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
+                obj.Fill = new ImageBrush(new BitmapImage(
+                new Uri(path, UriKind.Relative)));
                 var mousePos = e.GetPosition(grid);
                 double left;
                 double top;
@@ -319,6 +339,15 @@ namespace Inventar
                     }
                 }
             }
+        }
+        private string imgFileName(Rectangle obj)
+        {
+            var img = (ImageBrush)obj.Fill;
+            string defpath = img.ImageSource.ToString();
+            int defpathindex = defpath.LastIndexOf('/');
+            defpath = defpath.Substring(defpathindex + 1);
+            defpath = defpath.Split('_')[0];
+            return defpath;
         }
 
     }
