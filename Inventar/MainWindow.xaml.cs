@@ -57,10 +57,10 @@ namespace Inventar
 
                 
                 
-                string plus = "drag";
+                /*string plus = "drag";
                 string path = @"C:\Users\Alena\Desktop\Nová složka\"+imgFile+"_" + plus + ".png";
                 obj.Fill = new ImageBrush(new BitmapImage(
-                new Uri(path, UriKind.Relative)));
+                new Uri(path, UriKind.Relative)));*/
 
                 obj.CaptureMouse();
 
@@ -202,10 +202,10 @@ namespace Inventar
                 }
                 if (isFilled == true)
                 {
-                    string plus = "wrong";
+                    /*string plus = "wrong";
                     string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                     obj.Fill = new ImageBrush(new BitmapImage(
-                    new Uri(path, UriKind.Relative)));
+                    new Uri(path, UriKind.Relative)));*/
                     _isRectDragInProg = true;
                     isFilled = false;
 
@@ -213,10 +213,10 @@ namespace Inventar
                 else
                 {
                     
-                    string plus = "def";
+                    /*string plus = "def";
                     string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                     obj.Fill = new ImageBrush(new BitmapImage(
-                    new Uri(path, UriKind.Relative)));
+                    new Uri(path, UriKind.Relative)));*/
                     
                     obj.ReleaseMouseCapture();
 
@@ -249,10 +249,10 @@ namespace Inventar
             
             if (_isRectDragInProg == true)  
             {
-                string plus = "drag";
+                /*string plus = "drag";
                 string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                 obj.Fill = new ImageBrush(new BitmapImage(
-                new Uri(path, UriKind.Relative)));
+                new Uri(path, UriKind.Relative)));*/
                 var mousePos = e.GetPosition(grid);
                 double left;
                 double top;
