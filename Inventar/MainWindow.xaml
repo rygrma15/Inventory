@@ -12,7 +12,7 @@
 
         <Grid x:Name="grid" Height="750" Width="750" Margin="50,50,42,19" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.Background>
-                <ImageBrush ImageSource="D:\rygrma15\Inventar\bg.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\bg.png" Stretch="UniformToFill"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -60,7 +60,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv4.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv4.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -78,7 +78,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv2.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv2.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -97,7 +97,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\1x1-1_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-1_def.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -117,7 +117,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv5.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv5.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -136,7 +136,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\5x2-2_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-2_def.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -156,7 +156,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\inv3.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv3.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -176,7 +176,7 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="D:\rygrma15\Inventar\5x2-1_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-1_def.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>

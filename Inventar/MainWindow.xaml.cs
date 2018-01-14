@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
+
 namespace Inventar
 {
     /// <summary>
@@ -28,7 +29,8 @@ namespace Inventar
         int row;
         int collum;
         bool isFilled = false;
-        string imgFile;
+        Rectangle imgbg = new Rectangle();
+        
 
         public MainWindow()
         {
@@ -53,10 +55,11 @@ namespace Inventar
                 _isRectDragInProg = true;
                 obj = sender as Rectangle;
                 Panel.SetZIndex(obj, 100);
-                imgFile = imgFileName(obj);
+                imgbgAtr(obj);
+                grid.Children.Add(imgbg);
 
-                
-                
+
+
                 /*string plus = "drag";
                 string path = @"C:\Users\Alena\Desktop\Nová složka\"+imgFile+"_" + plus + ".png";
                 obj.Fill = new ImageBrush(new BitmapImage(
@@ -126,6 +129,10 @@ namespace Inventar
                         {
                             akt.Add(new Pozice(x, y));
                         }*/
+
+                    }
+                    else if (cell.GetValue(NameProperty).ToString() == imgbg.Name)
+                    {
 
                     }
                     else
@@ -206,21 +213,23 @@ namespace Inventar
                     string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                     obj.Fill = new ImageBrush(new BitmapImage(
                     new Uri(path, UriKind.Relative)));*/
+                    imgbg.Fill = Brushes.Red;
                     _isRectDragInProg = true;
                     isFilled = false;
 
                 }
                 else
                 {
-                    
+
                     /*string plus = "def";
                     string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                     obj.Fill = new ImageBrush(new BitmapImage(
                     new Uri(path, UriKind.Relative)));*/
-                    
+
                     obj.ReleaseMouseCapture();
 
                     Panel.SetZIndex(obj, 0);
+                    grid.Children.Remove(imgbg);
                     _isRectDragInProg = false;
 
                 }
@@ -246,14 +255,15 @@ namespace Inventar
 
         private void rect_MouseMove(object sender, MouseEventArgs e)
         {
-            
-            if (_isRectDragInProg == true)  
+
+            if (_isRectDragInProg == true)
             {
                 /*string plus = "drag";
                 string path = @"C:\Users\Alena\Desktop\Nová složka\" + imgFile + "_" + plus + ".png";
                 obj.Fill = new ImageBrush(new BitmapImage(
                 new Uri(path, UriKind.Relative)));*/
                 var mousePos = e.GetPosition(grid);
+                imgbg.Fill = Brushes.Blue;
                 double left;
                 double top;
 
@@ -298,6 +308,8 @@ namespace Inventar
 
                 Grid.SetColumn(obj, collum);
                 Grid.SetRow(obj, row);
+                Grid.SetColumn(imgbg, collum);
+                Grid.SetRow(imgbg, row);
             }
 
         }
@@ -332,7 +344,7 @@ namespace Inventar
             {
                 foreach (var objekt in load)
                 {
-                    if(objekt.name == cell.GetValue(NameProperty).ToString())
+                    if (objekt.name == cell.GetValue(NameProperty).ToString())
                     {
                         Grid.SetColumn(cell, objekt.x);
                         Grid.SetRow(cell, objekt.y);
@@ -340,7 +352,7 @@ namespace Inventar
                 }
             }
         }
-        private string imgFileName(Rectangle obj)
+        /*private string imgFileName(Rectangle obj)
         {
             var img = (ImageBrush)obj.Fill;
             string defpath = img.ImageSource.ToString();
@@ -348,6 +360,19 @@ namespace Inventar
             defpath = defpath.Substring(defpathindex + 1);
             defpath = defpath.Split('_')[0];
             return defpath;
+        }*/
+        private void imgbgAtr(Rectangle rectangle)
+        {
+            Grid.SetColumn(imgbg, Grid.GetColumn(rectangle));
+            Grid.SetRow(imgbg, Grid.GetRow(rectangle));
+            Grid.SetColumnSpan(imgbg, Grid.GetColumnSpan(rectangle));
+            Grid.SetRowSpan(imgbg, Grid.GetRowSpan(rectangle));
+            imgbg.Width = rectangle.Width;
+            imgbg.Height = rectangle.Height;
+            imgbg.Fill = Brushes.Red;
+            Panel.SetZIndex(imgbg, -100);
+            imgbg.Name = "imgbg";
+
         }
 
     }
