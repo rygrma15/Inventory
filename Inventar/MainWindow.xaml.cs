@@ -263,7 +263,7 @@ namespace Inventar
                 obj.Fill = new ImageBrush(new BitmapImage(
                 new Uri(path, UriKind.Relative)));*/
                 var mousePos = e.GetPosition(grid);
-                imgbg.Fill = Brushes.Blue;
+                imgbg.Fill = Brushes.CadetBlue;
                 double left;
                 double top;
 
@@ -369,7 +369,8 @@ namespace Inventar
             Grid.SetRowSpan(imgbg, Grid.GetRowSpan(rectangle));
             imgbg.Width = rectangle.Width;
             imgbg.Height = rectangle.Height;
-            imgbg.Fill = Brushes.Red;
+            imgbg.Fill = Brushes.CadetBlue;
+            //imgbg.Opacity = 0.5;
             Panel.SetZIndex(imgbg, -100);
             imgbg.Name = "imgbg";
 

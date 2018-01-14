@@ -51,16 +51,35 @@
 
             <Rectangle
                 Name="rect"
-                Width="50"
+                Width="100"
                 Height="100"
                 MouseLeftButtonDown="move_Rectangle"
                 MouseMove="rect_MouseMove"
                 Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
                 
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv4.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\2x2-1.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect1"
+                Width="100"
+                Height="50"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="8"
+                Grid.ColumnSpan="2" Grid.Row="4"
+                
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\2x1-1.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
@@ -72,18 +91,36 @@
                 MouseLeftButtonDown="move_Rectangle"
                 
                 MouseMove="rect_MouseMove"
-                Grid.Column="4"
-                Grid.ColumnSpan="2"
+                Grid.Column="6"
+                Grid.ColumnSpan="2" Grid.Row="5"
                 
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv2.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\2x1-2.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle
-                Name="rect1"
+                Name="rect3"
+                Width="100"
+                Height="50"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="3"
+                Grid.ColumnSpan="2" Grid.Row="6"
+                
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\2x1-3.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect4"
                 Width="50"
                 Height="50"
                 Canvas.Left="0"
@@ -97,12 +134,12 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-1_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-1.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle
-                Name="rect3"
+                Name="rect5"
                 Width="50"
                 Height="50"
                 Canvas.Left="0"
@@ -117,12 +154,12 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv5.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-3.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle
-                Name="rect4"
+                Name="rect6"
                 Width="250"
                 Height="100"
                 Canvas.Left="0"
@@ -136,12 +173,12 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-2_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-2.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle
-                Name="rect5"
+                Name="rect7"
                 Width="50"
                 Height="100"
                 Canvas.Left="0"
@@ -156,12 +193,12 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\inv3.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x2-1.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle
-                Name="rectX"
+                Name="rect8"
                 Width="250"
                 Height="100"
                 Canvas.Left="0"
@@ -176,7 +213,110 @@
                 >
                 <Rectangle.Fill>
 
-                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-1_def.png"/>
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\5x2-1.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect9"
+                Width="100"
+                Height="150"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="12"
+                Grid.Row="2"
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\2x3-1.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect10"
+                Width="350"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="8"
+                Grid.Row="5"
+                Grid.ColumnSpan="7"
+                HorizontalAlignment="Center"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\6x1-1.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect11"
+                Width="50"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="10"
+                Grid.Row="4"
+                HorizontalAlignment="Center"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-4.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect12"
+                Width="50"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="11"
+                Grid.Row="4"
+                HorizontalAlignment="Center"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-5.png"/>
+
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle
+                Name="rect14"
+                Width="50"
+                Height="50"
+                Canvas.Left="0"
+                Canvas.Top="0"
+                
+                MouseLeftButtonDown="move_Rectangle"
+                
+                MouseMove="rect_MouseMove"
+                Grid.Column="8"
+                Grid.Row="3"
+                HorizontalAlignment="Center"
+                >
+                <Rectangle.Fill>
+
+                    <ImageBrush ImageSource="C:\Users\Alena\Desktop\Nová složka\1x1-2.png"/>
 
                 </Rectangle.Fill>
             </Rectangle>
